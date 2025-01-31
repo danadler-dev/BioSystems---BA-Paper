@@ -103,8 +103,7 @@
 \author{Dan Adler} %% Author name
 
 %% Author affiliation
-\affiliation{organization={BNY},%Department and Organization
-            country={US}}
+\affiliation{email={dan@danadler.com}}
 
 %% Abstract
 \begin{abstract}
@@ -114,13 +113,16 @@ The emergence of complexity and information is a fundamental question spanning d
 
 %%Graphical abstract
 \begin{graphicalabstract}
-%\includegraphics{grabs}
+\includegraphics[width=1\textwidth]{figure_10}
 \end{graphicalabstract}
 
 %%Research highlights
 \begin{highlights}
-\item Research highlight 1
-\item Research highlight 2
+\item Introduces Bayesian Assembly (BA) systems as a model for stability-driven evolution.
+\item Develops a probabilistic update rule that selects for persistent, stable patterns.
+\item Demonstrates generational selection of emergent structures via stability feedback.
+\item Shows how BA systems extend Assembly Theory by modeling pattern evolution dynamics.
+\item Explores applications to chemical, economic, and information-theoretic systems.
 \end{highlights}
 
 %% Keywords
@@ -410,27 +412,6 @@ In this Bayesian Assembly (BA) framework, stability $S(p)$ quantifies the likeli
 
 These two examples from organic chemistry highlight how stability may play a key role in complex reaction graphs. The BA perspective supplements conventional kinetic modeling by focusing on net generational outcomes and selective retention, rather than detailing every reversible step. In doing so, BA systems reveal how certain ``attractor'' molecules or assemblies can emerge in an otherwise large and branching reaction space, reinforcing the view that stability-driven selection is a powerful force in shaping molecular evolution.
 
-\subsection{Mass Action Kinetics and Forward-Generation Constraints}
-\label{subsec:mak-forward-limitations}
-
-Mass Action Kinetics (MAK) \cite{TuranyiTomlin2014} provides deterministic rate equations for chemical reactions, such as
-\[
-\frac{d[A]}{dt} \;=\; -\,k\, [A]\,[B],
-\]
-where $[A]$ and $[B]$ represent concentrations and $k$ is a rate constant. These equations capture conservation laws for mass and energy and can reflect selection processes under certain conditions. More recent work such as Chemical Organization Theory (COT) \cite{DittrichFenizio2005} emphasizes the finding of closed and self-maintaining collections of species in a fixed reaction network. Assembly Theory (AT) has proposed the use of MAK-like forward models to link object production to assembly indices and copy numbers \cite{walker2023nature}.
-
-MAK inherently allows reactions to run both forward and backward with fixed-rate laws, posing a challenge for assembly frameworks like AT and BA that emphasize net forward construction. Although MAK excels at describing known reaction networks under equilibrium or near-equilibrium assumptions, it lacks a mechanism for the open discovery of novel compounds central to BA’s approach.
-
-\subsection{Analogy to Electronic Circuit Simulations}
-\label{subsec:spice-analogy}
-
-In MAK models species concentrations evolve as 
-$\dot{\mathbf{x}} = \mathbf{A}\,\mathbf{x} + \mathbf{b}$, where \(\mathbf{x}\) represents species concentrations, \(\mathbf{A}\) encodes stoichiometric and kinetic-rate constants, and \(\mathbf{b}\) accounts for base-element replenishment, driving the system away from thermodynamic equilibrium. A similar formulation appears in electronic circuit simulation, where node voltages evolve as 
-$\dot{\mathbf{v}} = \mathbf{A}\,\mathbf{v} + \mathbf{b}$, with \(\mathbf{A}\) capturing conductances and small-signal transistor gains, and \(\mathbf{b}\) representing external sources. These models resolve bidirectional flows and fine-grained transient dynamics at each time step.
-
-Higher-level abstractions, such as switch-level simulation \cite{AdlerCAD}, forego solving the full system of ODEs, instead tracking discrete state transitions. At an even coarser gate level \cite{FeynmanComp}, circuits are modeled as idealized logical operations, discarding continuous voltage dynamics.
-
-BA systems adopt a similarly abstracted perspective: rather than modeling bidirectional reaction flows explicitly, they capture dominant generational updates, analogous to switch- or gate-level simulation in circuits. Stability-driven selection replaces continuous-time reversibility, focusing on net forward assembly steps that determine the persistence and evolution of patterns.
 
 \subsection{Economic Example: Industry Ecosystem as a BA System}
 
@@ -690,6 +671,30 @@ Davies, P. \textit{The Goldilocks Enigma: Why is the Universe Just Right for Lif
 %% Add \usepackage{lineno} before \begin{document} and uncomment 
 %% following line to enable line numbers
 %% \linenumbers
+
+\appendix
+
+\section{Mass Action Kinetics and BA Systems}
+\label{subsec:mak-forward-limitations}
+
+Mass Action Kinetics (MAK) \cite{TuranyiTomlin2014} provides deterministic rate equations for chemical reactions, such as
+\[
+\frac{d[A]}{dt} \;=\; -\,k\, [A]\,[B],
+\]
+where $[A]$ and $[B]$ represent concentrations and $k$ is a rate constant. These equations capture conservation laws for mass and energy and can reflect selection processes under certain conditions. More recent work such as Chemical Organization Theory (COT) \cite{DittrichFenizio2005} emphasizes the finding of closed and self-maintaining collections of species in a fixed reaction network. Assembly Theory (AT) has proposed the use of MAK-like forward models to link object production to assembly indices and copy numbers \cite{walker2023nature}.
+
+MAK inherently allows reactions to run both forward and backward with fixed-rate laws, posing a challenge for assembly frameworks like AT and BA that emphasize net forward construction. Although MAK excels at describing known reaction networks under equilibrium or near-equilibrium assumptions, it lacks a mechanism for the open discovery of novel compounds central to BA’s approach.
+
+\subsection{Analogy to Electronic Circuit Simulations}
+\label{subsec:spice-analogy}
+
+In MAK models species concentrations evolve as 
+$\dot{\mathbf{x}} = \mathbf{A}\,\mathbf{x} + \mathbf{b}$, where \(\mathbf{x}\) represents species concentrations, \(\mathbf{A}\) encodes stoichiometric and kinetic-rate constants, and \(\mathbf{b}\) accounts for base-element replenishment, driving the system away from thermodynamic equilibrium. A similar formulation appears in electronic circuit simulation, where node voltages evolve as 
+$\dot{\mathbf{v}} = \mathbf{A}\,\mathbf{v} + \mathbf{b}$, with \(\mathbf{A}\) capturing conductances and small-signal transistor gains, and \(\mathbf{b}\) representing external sources. These models resolve bidirectional flows and fine-grained transient dynamics at each time step.
+
+Higher-level abstractions, such as switch-level simulation \cite{AdlerCAD}, forego solving the full system of ODEs, instead tracking discrete state transitions. At an even coarser gate level \cite{FeynmanComp}, circuits are modeled as idealized logical operations, discarding continuous voltage dynamics.
+
+BA systems adopt a similarly abstracted perspective: rather than modeling bidirectional reaction flows explicitly, they capture dominant generational updates, analogous to switch- or gate-level simulation in circuits. Stability-driven selection replaces continuous-time reversibility, focusing on net forward assembly steps that determine the persistence and evolution of patterns.
 
 
 \end{document}
