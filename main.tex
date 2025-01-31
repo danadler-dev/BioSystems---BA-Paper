@@ -143,29 +143,30 @@ Assembly Theory; Abiotic evolution; Emergent complexity; Information dynamics; T
 
 \section{Introduction}
 
-The study of evolution, complexity, and information has been a cornerstone of multiple scientific disciplines that bridge physics, biology, and computation. Foundational works such as Schrödinger's \textit{What is Life?} \cite{schrodinger1944life} posed fundamental questions about how order emerges from disorder, inspiring theoretical explorations of how physical laws govern the emergence of biological systems. Tegmark's \textit{Mathematical Universe Hypothesis} \cite{tegmark2008mathematical} posits that the universe itself is a mathematical structure, where physical phenomena are manifestations of abstract mathematical rules. These works frame the question of complexity, but leave the mechanisms of emergence unaddressed.
+The study of evolution, complexity, and information has been a cornerstone of multiple scientific disciplines that bridge physics, biology, and computation. Foundational works such as Schrödinger's \textit{What is Life?} \cite{schrodinger1944life} posed fundamental questions about how order emerges from disorder. Tegmark's \textit{Mathematical Universe Hypothesis} \cite{tegmark2008mathematical} posits that the universe itself is a mathematical structure, where physical phenomena are manifestations of abstract mathematical rules. These works frame the question of complexity, but leave the mechanisms of emergence unaddressed.
 
-In the realm of evolutionary dynamics, Fisher \cite{fisher1930genetical} and Nowak \cite{nowak2006evolutionary} provide mathematical models that describe the mechanisms of replication, mutation, and selection. Although these models illuminate the principles of biological evolution, they assume the existence of self-replicating, mutating entities and do not delve into how such entities might arise from purely abiotic processes. Similarly, Wheeler's concept of "It from Bit" \cite{wheeler1990itbit} intriguingly suggests that information underpins the physical world, but it lacks a concrete mechanism for how information structures form and evolve.
+In the realm of evolutionary dynamics, Fisher \cite{fisher1930genetical} and Nowak \cite{nowak2006evolutionary} provide mathematical models that describe the mechanisms of replication, mutation, and selection. Although these models illuminate the principles of biological evolution, they assume the existence of self-replicating, mutating entities and do not delve into how such entities might arise from purely abiotic processes. 
 
-Dennis Noble's work on top-down causality \cite{noble2012causality} emphasizes the role of systems-level behavior in determining lower-level interactions. This perspective challenges reductionist paradigms, but does not address how such systems might emerge from simpler abiotic conditions. On the computational side, Seth Lloyd’s concept of the universe as a quantum computer \cite{lloyd2006programming} provides a framework for understanding the universe as a computational entity but leaves open the question of how specific computational rules or patterns arise.
+Wheeler's "It from Bit" \cite{wheeler1990itbit} suggests information underpins reality but lacks a mechanism for its formation. Noble's top-down causality \cite{noble2012causality} challenges reductionism but does not explain system emergence. Lloyd’s quantum computation view of the universe \cite{lloyd2006programming} frames reality as computational yet leaves open how specific patterns arise.
 
-Algorithmic complexity \cite{kolmogorov1965complexity} \cite{chaitin1977algorithmic} \cite{solomonoff1964formal} and Shannon’s information theory \cite{shannon1948mathematical} provide powerful tools to quantify information and complexity, but do not explain how information is created or evolves within physical systems. These frameworks focus on static measures of complexity, often missing the dynamic interplay between interactions and selection that drives the formation of ordered structures.
+
+Algorithmic complexity \cite{kolmogorov1965complexity} \cite{chaitin1977algorithmic} \cite{solomonoff1964formal} and Shannon’s information theory \cite{shannon1948mathematical} provide powerful tools to quantify information and complexity, but do not explain how information emerges from physical systems.
+
+Constructor Theory \cite{deutsch2013constructor} reframes physical laws in terms of counterfactuals, focusing on what transformations are possible rather than on dynamical equations, offering insights into pattern formation and persistence. Assembly Theory (AT) \cite{walker2023nature} extends this by introducing the assembly index, quantifying complexity through the minimal steps needed to construct an object. While AT highlights selection's role in shaping complexity, it provides a retrospective rather than a dynamic model of selection in real time. Kauffman’s Theory of Adjacent Possible (TAP) identifies the combinatorial growth of adjacent possible configurations and introduces a quantitative measure of the rate of discovery within an expanding state space \cite{kauffman2024tap}.
+
+Chemical modeling systems, such as Mass Action Kinetics (MAK) \cite{TuranyiTomlin2014}, Chemical Reaction Network Theory (CRNT) \cite{feinberg1987chemical}, and the stochastic framework introduced by \cite{arxiv:q-bio0501016}, provide quantitative descriptions of reaction dynamics, incorporating conservation laws and equilibrium. These systems model well-defined reaction pathways in chemical systems, but typically require predefined reaction sets, and cannot explore open-ended generativity. Tononi's integrated information theory (IIT) \cite{tononi2008phi} offers a diagnostic tool for information complexity, beyond Shannon's Entropy, by quantifying the complexity of information systems through $\Phi$, a measure focusing on integrated information.
 
 This paper introduces Bayesian Assembly (BA) systems which offer an abstract model for the emergence of complexity and information. Unlike prior work tied to physical systems or abstract concepts without implementation pathways, BA systems provide a plausible mechanism for how stable patterns might arise, evolve, and persist based solely on probabilistic interactions.
-
-Constructor Theory \cite{deutsch2013constructor} provides a foundational framework for understanding physical laws in terms of counterfactuals—statements about which transformations are possible or impossible. This perspective shifts the focus from dynamical laws to the principles governing what can be constructed or maintained by physical systems, offering profound insights into how patterns emerge and persist. While Constructor Theory captures the essence of counterfactual properties, it does not explicitly address the generational dynamics through which such patterns evolve and are selected over time.
-
-Recent developments in Assembly Theory (AT) \cite{walker2023nature} complement this by providing a quantitative framework for complexity, introducing the assembly index as a measure of the minimal number of recursive steps required to construct an object from basic building blocks. AT emphasizes how physical and historical constraints shape the combinatorial explosion of possibilities, offering a retrospective view of selection. However, while AT identifies selection as central to the emergence of complexity, it does not model the dynamic processes through which selection unfolds in real time.
-
-Kauffman’s Theory of Adjacent Possible (TAP) emphasizes the combinatorial growth of adjacent possible configurations and introduces a quantitative measure for the rate of discovery within an expanding state space \cite{kauffman2024tap}. In contrast, Bayesian Assembly (BA) systems focus explicitly on how stability-driven selection governs the persistence and evolution of patterns, providing a dynamic probabilistic framework that complements and extends the more combinatorial perspective of TAP.
-
-More elaborate chemical modeling systems, such as Mass Action Kinetics (MAK) \cite{TuranyiTomlin2014}, Chemical Reaction Network Theory (CRNT) \cite{feinberg1987chemical}, and the stochastic framework introduced by \cite{arxiv:q-bio0501016}, provide detailed, quantitative descriptions of reaction dynamics, often incorporating conservation laws and equilibrium states. These systems excel at modeling well-defined reaction pathways, particularly in chemical and biochemical systems, but they typically require predefined reaction sets and fail to explore open-ended generativity. Tononi's integrated information theory (IIT) \cite{tononi2008phi} offers a different perspective by quantifying the complexity of neural and information systems through measures like $\Phi$, focusing on the integration and differentiation of information. Despite their strengths, these frameworks do not explicitly isolate selection as an emergent mechanism in the evolution of information.
 
 Bayesian Assembly (BA) systems distinguish themselves by their narrow focus on stability as the central determinant of pattern persistence. Stability is simulated by associating different lifetimes with concatenated patterns, capturing the essential dynamics of selection without invoking detailed physical or chemical laws. This approach allows BA systems to isolate and model selection as the driving mechanism of information evolution. The term "Bayesian" \cite{mcgrayne2011theory} reflects the iterative updating of probabilities for each pattern based on prior abundances and observed interactions. By emphasizing stability-driven selection in evolving state spaces, BA systems provide a dynamic and generative framework for studying how patterns are created, maintained, and ultimately evolve into complex configurations, complementing existing approaches while filling a crucial gap in our understanding of information evolution.
 
 \section{BA System Fundamentals}
 
-We define Bayesian Assembly (BA) systems as follows: a population of base elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. Compounds are represented as strings formed by concatenating base elements and existing compounds, allowing for repetitive and recursive patterns. The elements could exist in our physical universe, or in an abstract universe. The stability of compounds is an abstraction that determines only one thing: how many generations they will persist. For example, if compound AAB has a stability of 10 then it will persist for 10 generations and then disappear. In contrast to bidirectional models like MAK, where dissipation of patterns is modeled explicitly, BA systems eliminate expired patterns. Since we do not constrain the interactions themselves in any way, compounds that have a stability of 0 may get created and destroyed in the same generation, which simulates impossible interactions. We allow the base elements to regenerate at a constant rate in each generation. This ensures a continuous influx of resources, preventing stagnation and enabling sustained exploration of the state space. This assumption mirrors the continuous flow stirred tank reactor (CFSTR) methodology commonly employed in chemical reaction modeling, where reactants are replenished at a constant rate to maintain steady-state conditions \cite{fogler1999chemical}. The analogy highlights the foundational role that resource replenishment plays in both theoretical and experimental systems in exploring dynamic behaviors and emergent patterns.
+We define Bayesian Assembly (BA) systems as follows: a population of base elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. Compounds are represented as strings formed by concatenating base elements and existing compounds, allowing for repetitive and recursive patterns. The elements could exist in our physical universe, or in an abstract universe. 
+
+The stability of compounds is an abstraction that determines only one thing: how many generations they will persist. For example, if compound AAB has a stability of 10 then it will persist for 10 generations and then disappear. In contrast to bidirectional models like MAK, where dissipation of patterns is modeled explicitly, BA systems eliminate expired patterns. Since we do not constrain the interactions themselves in any way, compounds that have a stability of 0 may get created and destroyed in the same generation, which simulates impossible interactions. 
+
+In BA systems, the base elements regenerate at a constant rate in each generation. This ensures a continuous influx of resources, preventing stagnation and enabling sustained exploration of the state space. This assumption mirrors the continuous flow stirred tank reactor (CFSTR) methodology commonly employed in chemical reaction modeling, where reactants are replenished at a constant rate to maintain steady state conditions \cite{fogler1999chemical}. The analogy highlights the foundational role that resource replenishment plays in both theoretical and experimental systems in exploring dynamic behaviors and emergent patterns.
 
 \begin{figure}[htp]
     \centering
@@ -174,7 +175,9 @@ We define Bayesian Assembly (BA) systems as follows: a population of base elemen
     \label{fig:figure_1}
 \end{figure}
 
-Selection emerges naturally through the interplay of stability and probabilistic interactions. Consider a simple BA system starting with a few instances of base elements \( A \) and \( B \). The pattern \( AB \) has a lifetime of 10 generations, while \( ABAB \) has a lifetime of 50 generations, and all other compounds degrade instantly with a lifetime of 0. After the first generation, the system produces combinations such as \( AA \), \( BB \), and \( AB \). Since \( AA \) and \( BB \) are unstable, they are eliminated, leaving \( A \), \( B \), and \( AB \). In subsequent generations, new unstable patterns may appear transiently, but \( AB \) persists due to its longer lifetime. Over time, the population of \( AB \) increases probabilistically, as multiple instances of \( AB \) are likely to form, increasing the likelihood of forming \( ABAB \). This dynamic reflects a form of roulette wheel selection \cite{goldberg1989genetic} \cite{holland1975adaptation}, where the stability-driven persistence of \( AB \) amplifies its probability of interaction. The emergent pattern \( ABAB \) represents a higher-order configuration, demonstrating how selection, grounded in differential stability, shapes the system's evolutionary pathways. The mechanism relies on the stability-induced bias in interaction probabilities, ensuring that patterns with greater persistence are favored, enabling the accumulation of complexity over successive generations.
+Selection emerges naturally through the interplay of stability and probabilistic interactions. Consider a simple BA system starting with a few instances of base elements \( A \) and \( B \). The pattern \( AB \) has a lifetime of 10 generations, while \( ABAB \) has a lifetime of 50 generations, and all other compounds degrade instantly with a lifetime of 0. After the first generation, the system produces combinations such as \( AA \), \( BB \), and \( AB \). Since \( AA \) and \( BB \) are unstable, they are eliminated, leaving \( A \), \( B \), and \( AB \). In subsequent generations, new unstable patterns may appear transiently, but \( AB \) persists due to its longer lifetime. 
+
+Over time, the abundance of \( AB \) increases, as multiple copies of \( AB \) are likely to form, increasing the probability of forming \( ABAB \). This dynamic reflects a form of roulette wheel selection \cite{goldberg1989genetic} \cite{holland1975adaptation}, where the stability-driven persistence of \( AB \) increases its probability of interaction. The emergent pattern \( ABAB \) represents a higher-order configuration, demonstrating how selection, grounded in differential stability, shapes the system's evolutionary pathways. The mechanism relies on the stability-induced bias in interaction probabilities, ensuring that patterns with greater persistence are favored, enabling the accumulation of complexity over successive generations.
 
 The following simulation shows a different BA system with a population of 3 elements: {A, B, C}. Assume B-compounds are more stable than those without B. Thus patterns like BB, AB, BC, ABC, have a higher stability than AC or A or C. Therefore, B compounds will persist for multiple generations, while the others will quickly dissipate. The more stable B-compounds will interact more frequently due to their relative frequency, even though there is no replication or inheritance at the individual compound level. A snapshot of the simulation is shown in Figure \ref{fig:figure_2}.
 
@@ -189,13 +192,9 @@ Where is Maxwell's demon \cite{leff2002maxwell} hiding in Figure \ref{fig:figure
 
 \section{Dual Probability Distributions Governing BA Systems}
 
-BA systems can be effectively described by two interdependent probability distributions: the \textbf{population distribution}, which represents the relative abundance of patterns in the system, and the \textbf{stability distribution}, which quantifies the stable lifetime of successful compounds. The population distribution reflects the probabilities of patterns in any given generation \( t \). Let \( P_t(p) \) represent the probability of the pattern \( p \) in the population at time \( t \):
-\[
-P_t(p) = \frac{N_t(p)}{\sum_{q \in P} N_t(q)}
-\]
-where \( N_t(p) \) is the absolute count of pattern \( p \) in the population at time \( t \), and \( \sum_{q \in P} N_t(q) \) is the total population size at time \( t \), ensuring normalization (\( \sum_{p \in P} P_t(p) = 1 \)). The population distribution evolves over generations as patterns interact and new stable configurations emerge. As patterns with higher stability and frequent interactions become more prominent in the population, the population distribution evolves to reflect the history of past interactions and selection pressures.
+BA systems can be effectively described by two interdependent probability distributions: the \textbf{population distribution}, which represents the relative abundance of patterns in the system, and the \textbf{stability distribution}, which quantifies the stable lifetime of successful compounds. The population distribution reflects the probabilities of patterns in any given generation \( t \). The probability \( P_t(p) \) of a pattern \( p \) at time \( t \) is its relative abundance in the population: $P_t(p) = \frac{N_t(p)}{\sum_{q \in P} N_t(q)}$. As patterns with high stability and frequent interactions become more prominent in the population, the population distribution evolves to reflect the history of past interactions and selection pressures.
 
-The stability distribution \( S(p) \) represents the persistence or longevity of the individual pattern \( p \) in the system, defined as the expected lifetime or persistence of \( p \) over generations. Stability is a measure of how long a pattern remains viable before it dissipates or is replaced, reflecting physical properties such as energy barriers, bond strengths, environmental effects, and resistance to degradation.
+The stability distribution \( S(p) \) represents the persistence or longevity of the individual pattern \( p \) in the system, defined as the expected lifetime or persistence of \( p \) over generations. Stability is a measure of how long a pattern remains viable before it dissipates or is replaced.
 
 Stability influences the dynamics of the system by determining how long a pattern persists to participate in future interactions. Patterns with higher stability values \( S(p) \) are more likely to accumulate over generations, increasing their representation in the population and increasing the likelihood of forming new patterns. This persistence-driven selection creates a feedback loop, where stable patterns dominate the system dynamics, guiding the evolution of complexity. 
 
@@ -267,50 +266,19 @@ An analogous process occurs in a continuous-flow stirred tank reactor (CFSTR) \c
 
 In the context of BA systems, mixing introduces a larger combined state space, where the stable patterns that evolved independently within each system now have increased opportunities to cross-interact. High-stability patterns from these cross-interactions proliferate over less stable alternatives, driven by stability feedback mechanisms.
 
-\section{Bayesian Dynamics of Evolving Probability Distributions}
+\section{Why Bayesian Assembly?}
 
-The evolving probability distribution in Bayesian Assembly (BA) systems can be understood through Kauffman's \emph{Theory of the Adjacent Possible} \cite{kauffman2000investigations, kauffman2024tap}, which describes how new states become accessible as existing structures form. In BA systems, patterns with higher stability persist and proliferate across generations, while less stable configurations dissipate. This iterative process allows the emergence of novel patterns in generation \( t+1 \) that were previously inaccessible in generation \( t \), driven by stability-weighted selection.
+The term Bayesian Assembly (BA) is motivated by the system's iterative updating of probability distributions, analogous to Bayesian inference. In BA systems, the probability of each pattern \( P_t(p) \) in generation \( t \) acts as a prior, which is then updated based on stability and interaction dynamics to yield a posterior \( P_{t+1}(p) \) in the next generation. 
 
-In an unconstrained system, newly formed patterns reset to uniform probabilities each generation, preventing any long-term bias. In contrast, BA systems evolve according to Equation \ref{eq:full-ba-update}, which can be written as:
-\begin{equation}
-P_{t+1}(p) \propto \underbrace{P_t(p)\,S(p)}_{\text{Persist}(p)} + \underbrace{\sum_{(q,r)\to p} P_t(q)\,P_t(r)}_{\text{Create}(p)},
-\end{equation}
-where \( \text{Persist}(p) = P_t(p) S(p) \) represents the survival of an existing pattern, akin to a Bayesian prior weighted by a stability-based likelihood. The second term, \( \text{Create}(p) \), accounts for the combinatorial formation of new copies of $p$ from precursor interactions.
+We previously saw that $P_{t+1}(p) \propto\ Persist_t(p) + Create_t(p)$, where stability \( S(p) \) plays a role in $Persist(p)$ similar to a Bayesian Likelihood function, determining the persistence of existing patterns (which are the observed data). The term $Create(p)$ measures the rate of creation of new copies of patterns, so it does not depend directly on the pattern already existing in the population. Le \cite{le2020equation} has shown that evolutionary processes generally follow a Bayesian update dynamic, where the prior and posterior correspond to the distributions of successive generations. 
 
-This process parallels Bayesian updating: the prior distribution \( P_t(p) \) is modified by stability-weighted persistence and new combinatorial interactions, yielding a posterior distribution \( P_{t+1}(p) \) that governs the next generation. Unlike static Bayesian inference, where a fixed dataset refines a probability estimate, BA systems dynamically reshape their state space, allowing for genuine emergence. The frequentist probability of patterns within a generation reflects observed occurrences, but transitions between generations follow an evolving Bayesian update, demonstrating how stability-driven selection and probabilistic interactions drive the system toward structured complexity \cite{le2020equation}.
+The evolving probability distribution in Bayesian Assembly (BA) systems is an elaboration of Kauffman's \emph{Theory of the Adjacent Possible} \cite{kauffman2000investigations, kauffman2024tap}, which describes that new states become accessible as existing structures form but does not propose a selection mechanism. BA systems provide the mechanism for the exploration of the "adjacent possible".
 
 \subsection{Do BA Systems Truly Evolve?}
 
 A natural question arises: do BA systems genuinely evolve, or is "evolution" merely an analogy? While BA systems lack explicit self-replication at the level of individual instances of a pattern $p_i$, they exhibit population-level dynamics that are mathematically indistinguishable from classical evolutionary processes. The fundamental mechanism driving this behavior is that more copies of $p$ are sustainably created from precursor patterns, leading to an increasing relative abundance $N_p$ in the population. This, in turn, grants $p$ more opportunities to participate in subsequent reactions, reinforcing its presence over generations. Moreover, the stability function $S(p)$ ensures that higher-stability patterns persist longer before being degraded or replaced, further amplifying their representation. These dynamics align precisely with the principles of fitness-weighted selection in evolutionary systems, where persistence and reproductive opportunity drive the emergence of dominant patterns. Since the probability of $p$'s continued presence is explicitly governed by its relative abundance and stability in a roulette-wheel selection process, we assert that BA systems exhibit genuine evolutionary behavior—not as a mere analogy, but as a mathematical inevitability.
 
 
-\section{Stability Imbalances in Nature}
-
-The abstract BA model is motivated by the universe’s vast stability disparities, from fleeting nuclear states to gravitationally bound structures lasting billions of years. These variations in binding energy, environmental interactions, and system resilience may dictate the formation and persistence of low-entropy structures, from molecular networks to planetary systems. Covalent bonds gain longevity in extended lattices like diamond and graphene, while geological formations evolve over millions of years under pressure and erosion. On cosmological scales, gravitationally bound systems, including planetary and galactic structures, persist across epochs, underscoring the fundamental role of stability in natural organization.
-
-Beyond simple bond strength, the persistence of structures is influenced by factors such as spatial arrangements, catalytic reinforcement, feedback loops, and hierarchical assembly. Biological molecules, for instance, often derive stability not merely from strong covalent bonds but also from folded conformations, cooperative interactions, and self-repair mechanisms. Similarly, geological formations maintain their integrity over deep time due to self-reinforcing stress distributions and dynamic equilibrium with their environment. Table~\ref{tab:binding-forces} summarizes a broader range of stability-driven phenomena, highlighting their characteristic strengths and lifetimes across multiple scales.
-
-
-\begin{table}
-\centering
-\caption{Representative Stability Mechanisms in Nature and Their Typical Lifetimes.}
-\label{tab:binding-forces}
-\begin{tabular}{l l}
-\toprule
-\textbf{Mechanism} & \textbf{Typical Lifetime} \\
-\midrule
-Weak Nuclear (Beta Decay) & $\mu$s to minutes \\
-Strong Nuclear (Stable Nuclei) & Millions to trillions of years \\
-Covalent Bonds (Organic Molecules) & Seconds to billions of years \\
-Hydrogen Bonding (DNA, Proteins) & Picoseconds to seconds \\
-Ionic Bonds (Salts, Minerals) & Seconds to millennia \\
-Geological Structures (Mountains) & Thousands to billions of years \\
-Gravitational Systems (Planets, Stars) & Millions to billions of years \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Table \ref{tab:binding-forces} illustrates how stability is not solely a function of bond strength but arises from evolved hierarchical structures, environmental effects, and self-reinforcing dynamics. In a BA system, high-stability patterns accumulate over generations, biasing the reaction landscape towards configurations that persist. This provides a simplified conceptual model for understanding how long-lived low-entropy structures emerge in nature through differential stability selection, whether in chemical systems, geological formations, or cosmic architecture.
 
 \section{Simulation of Bayesian Assembly and Unconstrained Systems}
 
@@ -336,15 +304,12 @@ For each generation:
 \end{verbatim}
 \end{minipage}
 \end{center}
-The simulation results confirm that the unconstrained system disperses its probabilities over an expanding set of compounds, mirroring a uniform exploration of the combinatorial high-entropy state space. In contrast, the BA system channels probability into a subset of stable compounds. High-stability patterns become attractors, reducing entropy as the system evolves. Figure~\ref{fig:simulation_results} illustrates these differences: while the unconstrained distribution remains broad and diffuse, the BA distribution skews heavily toward stable patterns.
+The simulation results confirm that the unconstrained system disperses its probabilities over an expanding set of compounds, mirroring a uniform exploration of the combinatorial high-entropy state space. In contrast, the BA system channels probability into a subset of stable compounds. High-stability patterns become attractors, reducing entropy as the system evolves. Figure~\ref{fig:figure_4} illustrates these differences: while the unconstrained distribution remains broad and diffuse, the BA distribution skews heavily toward stable patterns and a peaked distribution which reduces entropy.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth,height=7cm]{figure_4.png}
-    \caption{Comparison of the evolution of the unconstrained system and the BA system. 
-    The unconstrained system exhibits a uniform distribution expanding over the state space, 
-    whereas the BA system creates more copies of high-stability patterns, 
-    thereby inducing order and reducing entropy.}
+    \includegraphics[width=1\textwidth,height=6cm]{figure_4.png}
+    \caption{Simulation of  unconstrained system (uniform distribution) and BA systems (peaked distribution).}
     \label{fig:figure_4}
  \end{figure}
 
@@ -494,25 +459,22 @@ BA systems provide a non-mystical explanation of the origins of order and inform
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\funding{This research received no external funding}
+%\funding{This research received no external funding}
 
-\institutionalreview{Not applicable}
+%\institutionalreview{Not applicable}
 
-\informedconsent{Not applicable}
+%\informedconsent{Not applicable}
 
-\dataavailability{Not applicable} 
+%\dataavailability{Not applicable} 
 
-\acknowledgments{}
+%\acknowledgments{}
 
-\conflictsofinterest{The author declares no conflicts of interest} 
+%\conflictsofinterest{The author declares no conflicts of interest} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{adjustwidth}{-\extralength}{0cm}
 %\printendnotes[custom] % Un-comment to print a list of endnotes
-
-\reftitle{References}
 
 % Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
@@ -673,6 +635,35 @@ Davies, P. \textit{The Goldilocks Enigma: Why is the Universe Just Right for Lif
 %% \linenumbers
 
 \appendix
+
+\section{Stability Imbalances in Nature}
+
+The abstract BA model is motivated by the universe’s vast stability disparities, from fleeting nuclear states to gravitationally bound structures lasting billions of years. These variations in binding energy, environmental interactions, and system resilience may dictate the formation and persistence of low-entropy structures, from molecular networks to planetary systems. Covalent bonds gain longevity in extended lattices like diamond and graphene, while geological formations evolve over millions of years under pressure and erosion. On cosmological scales, gravitationally bound systems, including planetary and galactic structures, persist across epochs, underscoring the fundamental role of stability in natural organization.
+
+Beyond simple bond strength, the persistence of structures is influenced by factors such as spatial arrangements, catalytic reinforcement, feedback loops, and hierarchical assembly. Biological molecules, for instance, often derive stability not merely from strong covalent bonds but also from folded conformations, cooperative interactions, and self-repair mechanisms. Similarly, geological formations maintain their integrity over deep time due to self-reinforcing stress distributions and dynamic equilibrium with their environment. Table~\ref{tab:binding-forces} summarizes a broader range of stability-driven phenomena, highlighting their characteristic strengths and lifetimes across multiple scales.
+
+
+\begin{table}
+\centering
+\caption{Representative Stability Mechanisms in Nature and Their Typical Lifetimes.}
+\label{tab:binding-forces}
+\begin{tabular}{l l}
+\toprule
+\textbf{Mechanism} & \textbf{Typical Lifetime} \\
+\midrule
+Weak Nuclear (Beta Decay) & $\mu$s to minutes \\
+Strong Nuclear (Stable Nuclei) & Millions to trillions of years \\
+Covalent Bonds (Organic Molecules) & Seconds to billions of years \\
+Hydrogen Bonding (DNA, Proteins) & Picoseconds to seconds \\
+Ionic Bonds (Salts, Minerals) & Seconds to millennia \\
+Geological Structures (Mountains) & Thousands to billions of years \\
+Gravitational Systems (Planets, Stars) & Millions to billions of years \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{tab:binding-forces} illustrates how stability is not solely a function of bond strength but arises from evolved hierarchical structures, environmental effects, and self-reinforcing dynamics. In a BA system, high-stability patterns accumulate over generations, biasing the reaction landscape towards configurations that persist. This provides a simplified conceptual model for understanding how long-lived low-entropy structures emerge in nature through differential stability selection, whether in chemical systems, geological formations, or cosmic architecture.
+
 
 \section{Mass Action Kinetics and BA Systems}
 \label{subsec:mak-forward-limitations}
