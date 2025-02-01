@@ -166,7 +166,8 @@ We define Bayesian Assembly (BA) systems as a population of base elements \( A, 
 
 The stability of compounds is an abstraction that determines only one thing: how many generations they will persist. For example, if compound AAB has a stability of 10 then it will persist for 10 generations and then disappear. In contrast to bidirectional models like MAK, where dissipation of patterns is modeled explicitly, BA systems eliminate expired patterns. Since we do not constrain the interactions themselves in any way, compounds that have a stability of 0 may get created and destroyed in the same generation, which simulates impossible interactions. 
 
-In BA systems, the base elements regenerate at a constant rate in each generation. This ensures a continuous influx of resources, preventing stagnation and enabling sustained exploration of the state space. This mirrors the continuous-flow stirred tank reactor (CFSTR) methodology employed in chemical reaction modeling, where reactants are replenished at a constant rate to maintain steady-state conditions \cite{fogler1999chemical}. The analogy highlights the foundational role that resource replenishment plays in both theoretical and experimental systems in exploring dynamic behaviors and emergent patterns.
+In BA systems, the base elements regenerate at a constant rate in each generation. This ensures a continuous influx of resources, preventing stagnation and enabling sustained exploration of the state space. This mirrors the continuous-flow stirred tank reactor (CFSTR) methodology used in chemical reaction modeling, where reactants are replenished at a constant rate to maintain steady-state conditions \cite{fogler1999chemical}. The analogy highlights the foundational role that resource replenishment plays in both theoretical and experimental systems in exploring dynamic behaviors and emergent patterns. For \( n \) base elements replenished at a rate of \( m \) copies per generation, the maximum number of tokens available per generation is \( n \cdot m \), which limits the number of interactions per generation. The term "token" is used in analogy to Petri nets \cite{petri1962communication}, where tokens represent discrete entities that move through a network based on transition rules. In BA systems, tokens similarly track the presence and abundance of patterns, evolving under stability-driven selection.
+
 
 \begin{figure}[htp]
     \centering
@@ -175,9 +176,7 @@ In BA systems, the base elements regenerate at a constant rate in each generatio
     \label{fig:figure_1}
 \end{figure}
 
-Selection emerges naturally through the interplay of stability and probabilistic interactions. Consider a simple BA system starting with a few instances of the base elements \( A \) and \( B \). The pattern \( AB \) has a lifetime of 10 generations, while \( ABAB \) has a lifetime of 50 generations, and all other compounds degrade instantly with a lifetime of 0. After the first generation, the system produces combinations such as \( AA \), \( BB \), and \( AB \). Since \( AA \) and \( BB \) are unstable, they are eliminated, leaving \( A \), \( B \), and \( AB \). In subsequent generations, new unstable patterns may appear transiently, but \( AB \) persists due to its longer lifetime. 
-
-In addition, the abundance of \( AB \) increases, as multiple copies of \( AB \) are likely to form, increasing the probability of forming \( ABAB \). This dynamic reflects a form of roulette wheel selection \cite{goldberg1989genetic} \cite{holland1975adaptation}, where the stability-driven persistence of \( AB \) increases its probability of persistence and further interaction. The emergent pattern \( ABAB \) represents a higher-order configuration, demonstrating how selection, grounded in differential stability, shapes the system's evolutionary pathways. 
+Consider a simple BA system starting with a few instances of the base elements \( A \) and \( B \). The pattern \( AB \) has a lifetime of 10 generations, while \( ABAB \) has a lifetime of 50 generations, and all other compounds degrade instantly with a lifetime of 0. After the first generation, the system produces combinations such as \( AA \), \( BB \), and \( AB \). Since \( AA \) and \( BB \) are unstable, they are eliminated, leaving \( A \), \( B \), and \( AB \). In subsequent generations, new unstable patterns may appear transiently, but \( AB \) persists due to its longer lifetime. In addition, the abundance of \( AB \) increases, as multiple copies of \( AB \) are likely to form, increasing the probability of forming \( ABAB \). This dynamic reflects a form of roulette wheel selection \cite{goldberg1989genetic} \cite{holland1975adaptation}, where the stability-driven persistence of \( AB \) increases its probability of persistence and further interaction. The emergent pattern \( ABAB \) represents a higher-order configuration, demonstrating how selection, grounded in differential stability, shapes the system's evolutionary pathways. 
 
 The following simulation shows a different BA system, with a population of 3 elements: {A, B, C}. Assume that B compounds are more stable than those without B. Thus, patterns like BB, AB, BC, and ABC have a higher stability than AC or A or C. Therefore, B compounds will persist for multiple generations, while all others will dissipate. The more stable B-compounds will interact more frequently as a result of their relative frequency, even though there is no replication or inheritance at the individual compound level. A snapshot of the simulation is shown in Figure \ref{fig:figure_2}.
 
@@ -270,9 +269,9 @@ The term Bayesian Assembly (BA) is motivated by the system's iterative updating 
 
 We previously saw that $P_{t+1}(p) \propto\ Persist_t(p) + Create_t(p)$, where stability \( S(p) \) plays a role in $Persist(p)$ similar to a Bayesian Likelihood function, determining the persistence of existing patterns (which are the observed data). The term $Create(p)$ measures the rate of creation of new copies of patterns, so it does not depend directly on the pattern already existing in the population. Le \cite{le2020equation} has shown that evolutionary processes generally follow a Bayesian update dynamic, where the prior and posterior correspond to the distributions of successive generations. 
 
-The evolving probability distribution in Bayesian Assembly (BA) systems is an elaboration of Kauffman's \emph{Theory of the Adjacent Possible} \cite{kauffman2000investigations, kauffman2024tap}, which describes that new states become accessible as existing structures form but does not propose a selection mechanism. BA systems provide the mechanism for the exploration of the "adjacent possible".
+The evolving probability distribution in Bayesian Assembly (BA) systems is an elaboration of Kauffman's \emph{Theory of the Adjacent Possible} \cite{kauffman2000investigations, kauffman2024tap}, which describes that new states become accessible as existing structures form but does not propose a selection mechanism. BA systems may provide the missing mechanism for the exploration of the "adjacent possible".
 
-\subsection{Do BA Systems Truly Evolve?}
+\section{Do BA Systems Truly Evolve?}
 
 A natural question arises: do BA systems genuinely evolve, or is "evolution" merely an analogy? Although BA systems lack explicit self-replication at the level of individual instances of a pattern $p_i$, they exhibit population-level dynamics that are mathematically indistinguishable from classical evolutionary processes. The fundamental mechanism driving this behavior is that more copies of $p$ are sustainably created from the precursor patterns, leading to an increasing relative abundance $N_p$ in the population. This, in turn, gives $p$ more opportunities to participate in subsequent reactions, strengthening its presence over generations. Moreover, the stability function $S(p)$ ensures that higher stability patterns persist longer before being degraded or replaced, further amplifying their representation. These dynamics align precisely with the principles of fitness-weighted selection in evolutionary systems, where persistence and reproductive opportunity drive the emergence of dominant patterns. Since the probability of $p$'s continued presence is explicitly governed by its relative abundance and stability in a roulette wheel selection process, we assert that BA systems exhibit genuine evolutionary behavior - not as a mere analogy, but as a mathematical inevitability.
 
@@ -313,7 +312,7 @@ The simulation results in Figure \ref{fig:figure_4} confirm that the unconstrain
 
 \section{Dynamic Graph Representation and Token Flow Analysis}
 
-To further investigate the dynamics of BA systems, we represent the state of the system in a specific generation as a directed graph, where the nodes correspond to base elements and compounds such as $A$, $AB$, $ABA$, $ABC$, and the directed edges represent the interactions that occurred between them in their assembly process. The base elements $A$, $B$, $C$ are replenished in each generation, initiating a cascade of interactions that propagate "tokens" (shown in Figure~\ref{fig:figure_5} as the count $N$ of instances or copies of each pattern). 
+To further investigate the dynamics of BA systems, we represent the state of the system in a specific generation as a directed graph, where the nodes correspond to base elements and compounds such as $A$, $AB$, $ABA$, $ABC$, and the directed edges represent the interactions that occurred between them in their assembly process. The base elements $A$, $B$, $C$ are replenished in each generation, initiating a cascade of interactions that propagate tokens (shown in Figure~\ref{fig:figure_5} as the count $N$ of instances or copies of each pattern). 
 
 The token flow describes the redistribution of these tokens between nodes in the reaction graph, driven by stability dynamics and interactions. This process is analogous to probability currents in quantum mechanics \cite{feynman1965quantum} and optimal transport \cite{villani2008optimal}, reflecting the macroscopic evolution of the system. The tokens accumulate at nodes based on the flow dynamics, which are governed by the stability of each pattern (shown in Figure~\ref{fig:figure_5} as $S$), influencing the persistence and selection of patterns over successive generations.
 
@@ -345,33 +344,6 @@ The principles of Bayesian Assembly (BA) systems can be illustrated through the 
 In the BA framework, node stability \(S(p)\) quantifies the persistence of each compound, with higher stability values assigned to products like hematite and magnetite due to their robust bonding and lower susceptibility to dissociation. This reaction network provides a testable system for validating the role of stability in driving reaction pathways. By simulating token flow dynamics based on stability values, the framework captures how high-stability compounds emerge and dominate over successive generations, aligning with experimental observations of oxidation processes.
 
 
-\subsection{Organic Chemistry Examples and Their BA System Interpretations}
-\label{sec:organic-ba-examples}
-
-Two reaction graphs from organic chemistry provide illustrative cases to understand how Bayesian Assembly (BA) systems can model complex pathways at a high level. Although neither example specifically reflects a continuous-flow stirred tank reactor (CFSTR), both showcase how the concept of node stability plays a role in the formation and persistence of certain molecular arrangements. By assigning relative stability values to each species based on physical, chemical, and catalytic considerations, one can track how the resulting population of intermediates evolves according to the generational dynamics of BA systems.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth,height=0.55\textwidth]{figure_7.png}
-    \caption{Reaction graph for possible Carbon Nanostructure Assembly}
-    \label{fig:figure_7}
-\end{figure}
-
-Figure~\ref{fig:figure_7} illustrates an abstract reaction graph showing the progressive assembly of carbon-based structures, starting from simple carbon monomers (\( \text{C} \)) and hydrogen atoms (\( \text{H} \)). In the early stages, carbon atoms bond to form dimers (\( \text{C}_2 \)) or small hydrocarbons such as ethylene (\( \text{C}_2\text{H}_4 \)). Through additional interactions and stabilization processes, these smaller molecules transform into increasingly complex structures, such as benzene (\( \text{C}_6\text{H}_6 \)), which serves as a precursor for planar graphene sheets (\( \text{C}_n \)). Ultimately, graphene sheets curl into carbon nanotubes (\( \text{C}_n\text{H}_m \)), high-stability configurations characterized by their exceptional mechanical and electrical properties. 
-
-The main pathway emphasizes the gradual increase in structural complexity and stability. Alongside this progression, less stable intermediates, such as defective graphene or transient molecules, may arise, but typically do not persist due to lower stability. These transient species reflect pathways that are accessible in the reaction space, but are pruned over successive iterations. Here, stability \( S(p) \) plays a central role in determining the persistence and influence of each compound. Simple elements (\( \text{C} \), \( \text{H} \)) and early products (\( \text{C}_2 \), \( \text{C}_2\text{H}_4 \)) possess baseline stability values, representing their shorter lifetimes and higher turnover rates. As more complex compounds are formed, their stability parameters increase, reflecting stronger bonding, lower dissociation rates, and greater resistance to perturbation. Generational updates in a BA model dynamically favor the accumulation of these high-stability patterns, leading to the dominance of advanced nanostructures. In contrast, low-stability pathways fade over time, illustrating how stability-driven selection sculpts the molecular landscape and guides the emergence of ordered, complex systems.
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth,height=0.4\textwidth]{figure_8.png}
-    \caption{Reaction graph for possible pre-RNA Sugar Assembly}
-    \label{fig:figure_8}
-\end{figure}
-
-Figure~\ref{fig:figure_8} illustrates a simplified reaction network where small carbonyl-containing molecules, such as formaldehyde (CH$_2$O), undergo pairwise interactions to form sugars of increasing complexity. The pathway begins with the condensation of formaldehyde into glycolaldehyde (C$_2$H$_4$O$_2$), which can interact further to form intermediate compounds, such as a dimer of formaldehyde and glycolaldehyde. These intermediates then serve as precursors to ribose (C$_5$H$_{10}$O$_5$), a key sugar and a crucial building block for RNA. Alongside the main reaction pathway, side reactions lead to the formation of less stable by-products, such as branched sugars, which typically dissipate due to their lower persistence.
-
-These two examples from organic chemistry highlight how stability may play a role in complex reaction graphs. The BA perspective supplements conventional kinetic modeling by focusing on net generational outcomes and selective retention, rather than detailing every reversible step. In doing so, BA systems reveal how certain ``attractor'' molecules or assemblies can emerge in an otherwise large and branching reaction space, reinforcing the view that stability-driven selection is a powerful force in shaping molecular evolution.
 
 
 \subsection{Economic Example: Industry Ecosystem as a BA System}
@@ -414,9 +386,9 @@ BA systems provide a simple framework for understanding the emergence of complex
 
 The iterative interaction of elements in BA systems may help explain the evolution of matter and energy. From the aggregation of quarks into elementary particles, to the evolution of molecules and chemistry. The periodic table, for example, organizes elements based on properties such as ionization energy, chemical reactivity, etc. These properties bias element interactions, favoring stable configurations. For example, \( H_2 \) forms in dense regions of space where hydrogen atoms collide and bond. It is stable because of strong covalent bonds and serves as a building block for stars. This reflects the dominance of stability-driven patterns, akin to how BA systems reinforce stable patterns over generations. 
 
-BA systems suggest that evolution may be a universal property of random populations with stability imbalances, not confined to living organisms. By demonstrating how random populations with stability-driven interactions naturally evolve toward order, this framework proposes that perhaps biological evolution of individual organisms is a later stage in such dynamics. Recent findings suggest that stability-driven self-assembly mechanisms may play a crucial role in biotic systems, highlighting the interplay between abiotic and biological evolution \cite{davies2022selfassembly}.
+BA systems suggest that evolution may be a universal property of random populations with large stability imbalances, not confined to living organisms. By demonstrating how random populations with stability-driven interactions naturally evolve toward order, this framework proposes that perhaps biological evolution of individual organisms is a later stage in such dynamics. Recent findings suggest that stability-driven self-assembly mechanisms may play a role in biotic systems, highlighting the possible connection between abiotic and biological evolution \cite{davies2022selfassembly}.
 
-BA systems provide a non-mystical explanation of the origins of order and information, but they still leave open the question of fine-tuning. Fine-tuned imbalances, such as those described in Rees' \textit{Just Six Numbers} \cite{rees2000just} and Davies' \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}, exemplify how asymmetries in fundamental constants enable complexity across scales. For instance, quantum fluctuations may have seeded the formation of stars and galaxies. Similarly, in BA systems,  non-uniform stability biases interactions toward forming persistent ordered patterns. This connection reinforces the idea that evolution, driven by imbalance and selection, operates universally, bridging the emergence of complexity from the cosmological to molecular scales. In summary, if the analogy holds and the universe turns out to evolve like a BA system, one might be tempted to say that God does indeed play dice, but the dice are loaded.
+BA systems provide a non-mystical explanation of the origins of order and information, but they still leave open the question of fine-tuning. Fine-tuned imbalances, such as those described in Rees' \textit{Just Six Numbers} \cite{rees2000just} and Davies' \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}, exemplify how asymmetries in fundamental physical constants enable complexity across scales. Similarly, in BA systems,  non-uniform stability biases interactions toward forming persistent ordered patterns. This connection reinforces the idea that evolution, driven by imbalance and selection, operates universally, bridging the emergence of complexity from the cosmological to molecular scales. If further empirical evidence shows that large stability imbalances play a key role in the evolution of the universe, then one might be tempted to say that God does indeed play dice, but the dice are loaded.
 
 
 %\begin{listing}[H]
@@ -560,6 +532,8 @@ Fogler, H. S. (1999). \textit{Elements of Chemical Reaction Engineering} (3rd ed
 \bibitem{leff2002maxwell}
 Leff, H.S.; Rex, A.F. \textit{Maxwell’s Demon: Entropy, Information, Computing}; Princeton University Press: Princeton, NJ, USA, 2002.
 
+\bibitem{petri1962communication} C. A. Petri, \textit{Communication with Automata}, Technical Report RADC-TR-65-377, Rome Air Development Center, New York, 1966.
+
 %ref 14
 \bibitem{back1996evolutionary}
 Bäck, T.; Fogel, D.B.; Michalewicz, Z. \textit{Evolutionary Computation 1: Basic Algorithms and Operators}; CRC Press: FL, USA, 2000.
@@ -682,6 +656,35 @@ $\dot{\mathbf{v}} = \mathbf{A}\,\mathbf{v} + \mathbf{b}$, with \(\mathbf{A}\) ca
 Higher-level abstractions, such as switch-level simulation \cite{AdlerCAD}, forego solving the full system of ODEs, instead tracking discrete state transitions. At an even coarser gate level \cite{FeynmanComp}, circuits are modeled as idealized logical operations, discarding continuous voltage dynamics.
 
 BA systems adopt a similarly abstracted perspective: rather than modeling bidirectional reaction flows explicitly, they capture dominant generational updates, analogous to switch- or gate-level simulation in circuits. Stability-driven selection replaces continuous-time reversibility, focusing on net forward assembly steps that determine the persistence and evolution of patterns.
+
+\section{Organic Chemistry Examples and Their BA System Interpretations}
+\label{sec:organic-ba-examples}
+
+Two reaction graphs from organic chemistry provide illustrative cases to understand how Bayesian Assembly (BA) systems can model complex pathways at a high level. Although neither example specifically reflects a continuous-flow stirred tank reactor (CFSTR), both showcase how the concept of node stability plays a role in the formation and persistence of certain molecular arrangements. By assigning relative stability values to each species based on physical, chemical, and catalytic considerations, one can track how the resulting population of intermediates evolves according to the generational dynamics of BA systems.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth,height=0.55\textwidth]{figure_7.png}
+    \caption{Reaction graph for possible Carbon Nanostructure Assembly}
+    \label{fig:figure_7}
+\end{figure}
+
+Figure~\ref{fig:figure_7} illustrates an abstract reaction graph showing the progressive assembly of carbon-based structures, starting from simple carbon monomers (\( \text{C} \)) and hydrogen atoms (\( \text{H} \)). In the early stages, carbon atoms bond to form dimers (\( \text{C}_2 \)) or small hydrocarbons such as ethylene (\( \text{C}_2\text{H}_4 \)). Through additional interactions and stabilization processes, these smaller molecules transform into increasingly complex structures, such as benzene (\( \text{C}_6\text{H}_6 \)), which serves as a precursor for planar graphene sheets (\( \text{C}_n \)). Ultimately, graphene sheets curl into carbon nanotubes (\( \text{C}_n\text{H}_m \)), high-stability configurations characterized by their exceptional mechanical and electrical properties. 
+
+The main pathway emphasizes the gradual increase in structural complexity and stability. Alongside this progression, less stable intermediates, such as defective graphene or transient molecules, may arise, but typically do not persist due to lower stability. These transient species reflect pathways that are accessible in the reaction space, but are pruned over successive iterations. Here, stability \( S(p) \) plays a central role in determining the persistence and influence of each compound. Simple elements (\( \text{C} \), \( \text{H} \)) and early products (\( \text{C}_2 \), \( \text{C}_2\text{H}_4 \)) possess baseline stability values, representing their shorter lifetimes and higher turnover rates. As more complex compounds are formed, their stability parameters increase, reflecting stronger bonding, lower dissociation rates, and greater resistance to perturbation. Generational updates in a BA model dynamically favor the accumulation of these high-stability patterns, leading to the dominance of advanced nanostructures. In contrast, low-stability pathways fade over time, illustrating how stability-driven selection sculpts the molecular landscape and guides the emergence of ordered, complex systems.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth,height=0.4\textwidth]{figure_8.png}
+    \caption{Reaction graph for possible pre-RNA Sugar Assembly}
+    \label{fig:figure_8}
+\end{figure}
+
+Figure~\ref{fig:figure_8} illustrates a simplified reaction network where small carbonyl-containing molecules, such as formaldehyde (CH$_2$O), undergo pairwise interactions to form sugars of increasing complexity. The pathway begins with the condensation of formaldehyde into glycolaldehyde (C$_2$H$_4$O$_2$), which can interact further to form intermediate compounds, such as a dimer of formaldehyde and glycolaldehyde. These intermediates then serve as precursors to ribose (C$_5$H$_{10}$O$_5$), a key sugar and a crucial building block for RNA. Alongside the main reaction pathway, side reactions lead to the formation of less stable by-products, such as branched sugars, which typically dissipate due to their lower persistence.
+
+These two examples from organic chemistry highlight how stability may play a role in complex reaction graphs. The BA perspective supplements conventional kinetic modeling by focusing on net generational outcomes and selective retention, rather than detailing every reversible step. In doing so, BA systems reveal how certain ``attractor'' molecules or assemblies can emerge in an otherwise large and branching reaction space, reinforcing the view that stability-driven selection is a powerful force in shaping molecular evolution. However, it is important to acknowledge the limitations of isolating stability as the sole selection factor. In physical systems, molecular persistence is influenced not only by intrinsic stability but also by energy barriers, temperature, catalytic effects, reaction kinetics, and external environmental constraints. While BA systems provide a useful conceptual model, further research is required to quantify the relative contribution of stability compared to other physical and chemical influences in determining the persistence and evolution of molecular structures.
+
 
 
 \end{document}
